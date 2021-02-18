@@ -1,11 +1,18 @@
 package FruitPrices
 
+import APPLES
+import BANANES
+import CERISES
+import MELE
+import POMMES
 import java.lang.IllegalArgumentException
 
 fun getPrice(fruit: String): Int =
     when (fruit) {
-        "Cerise" -> 75
-        "Banane" -> 150
-        "Pomme" -> 100
-        else -> throw IllegalArgumentException("")
+        CERISES -> 75
+        BANANES -> 150
+        POMMES -> 100
+        APPLES -> getPrice(POMMES)
+        MELE -> getPrice(POMMES)
+        else -> throw IllegalArgumentException("Unknown fruit : $fruit")
     }

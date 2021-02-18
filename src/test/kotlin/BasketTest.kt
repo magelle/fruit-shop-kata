@@ -4,85 +4,123 @@ import kotlin.test.Test
 
 class BasketTest {
 
-    val basket = Basket(::applyDiscounts, Translator())
+    val basket = Basket(::applyDiscounts)
 
     @Test
     fun `Pomme price is 100`() {
-        basket.add("Pomme")
+        basket.add(POMMES)
 
         assertThat(basket.total()).isEqualTo(100)
     }
 
     @Test
     fun `Apple price is 100`() {
-        basket.add("Apple")
+        basket.add(APPLES)
 
         assertThat(basket.total()).isEqualTo(100)
     }
 
     @Test
     fun `Mele price is 100`() {
-        basket.add("Mele")
+        basket.add(MELE)
 
         assertThat(basket.total()).isEqualTo(100)
     }
 
     @Test
     fun `Banane price is 150`() {
-        basket.add("Banane")
+        basket.add(BANANES)
 
         assertThat(basket.total()).isEqualTo(150)
     }
 
     @Test
     fun `Cerise price is 75`() {
-        basket.add("Cerise")
+        basket.add(CERISES)
 
         assertThat(basket.total()).isEqualTo(75)
     }
 
     @Test
     fun `Sum fruits`() {
-        basket.add("Pomme")
-        basket.add("Pomme")
+        basket.add(POMMES)
+        basket.add(POMMES)
 
         assertThat(basket.total()).isEqualTo(200)
     }
 
     @Test
     fun `Cerise discount`() {
-        basket.add("Cerise")
-        basket.add("Cerise")
+        basket.add(CERISES)
+        basket.add(CERISES)
 
         assertThat(basket.total()).isEqualTo(130)
     }
 
     @Test
     fun `several times the cerises discount`() {
-        basket.add("Cerise")
-        basket.add("Cerise")
-        basket.add("Cerise")
-        basket.add("Cerise")
+        basket.add(CERISES)
+        basket.add(CERISES)
+        basket.add(CERISES)
+        basket.add(CERISES)
 
         assertThat(basket.total()).isEqualTo(260)
     }
 
     @Test
     fun `Banane discount`() {
-        basket.add("Banane")
-        basket.add("Banane")
+        basket.add(BANANES)
+        basket.add(BANANES)
 
         assertThat(basket.total()).isEqualTo(150)
     }
 
     @Test
     fun `several times the banane discount`() {
-        basket.add("Banane")
-        basket.add("Banane")
-        basket.add("Banane")
-        basket.add("Banane")
+        basket.add(BANANES)
+        basket.add(BANANES)
+        basket.add(BANANES)
+        basket.add(BANANES)
 
         assertThat(basket.total()).isEqualTo(300)
     }
 
+    @Test
+    fun `apples discount`() {
+        basket.add(APPLES)
+        basket.add(APPLES)
+        basket.add(APPLES)
+
+        assertThat(basket.total()).isEqualTo(200)
+    }
+
+    @Test
+    fun `several times the apples discount`() {
+        basket.add(APPLES)
+        basket.add(APPLES)
+        basket.add(APPLES)
+        basket.add(APPLES)
+        basket.add(APPLES)
+        basket.add(APPLES)
+
+        assertThat(basket.total()).isEqualTo(400)
+    }
+
+    @Test
+    fun `Mele discount`() {
+        basket.add(MELE)
+        basket.add(MELE)
+
+        assertThat(basket.total()).isEqualTo(100)
+    }
+
+    @Test
+    fun `several times the Mele discount`() {
+        basket.add(MELE)
+        basket.add(MELE)
+        basket.add(MELE)
+        basket.add(MELE)
+
+        assertThat(basket.total()).isEqualTo(200)
+    }
 }

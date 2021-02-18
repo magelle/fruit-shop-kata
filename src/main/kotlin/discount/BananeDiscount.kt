@@ -1,4 +1,6 @@
 package discount
 
+import BANANES
+
 fun bananeDiscount(fruits: List<String>) =
-    (fruits.filter { it == "Banane" }.count() / 2) * 150
+    (fruits.filter { it == BANANES }.count() / 2) * 150

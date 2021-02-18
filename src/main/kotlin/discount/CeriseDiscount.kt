@@ -1,4 +1,6 @@
 package discount
 
+import CERISES
+
 fun ceriseDiscount(fruits: List<String>) =
-    (fruits.filter { it == "Cerise" }.count() / 2) * 20
+    (fruits.filter { it == CERISES }.count() / 2) * 20

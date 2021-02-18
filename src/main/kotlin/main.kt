@@ -1,8 +1,8 @@
 fun main(args: Array<String>) {
-    val basket = Basket(::applyDiscounts, Translator())
+    val basket = Basket(::applyDiscounts)
     generateSequence { readLine() }
         .forEach {
-            basket.add(it)
+            parse(it).forEach(basket::add)
             println(basket.total())
         }
 }

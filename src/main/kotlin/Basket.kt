@@ -1,8 +1,8 @@
 import FruitPrices.getPrice
 
 class Basket(
-    private val discounts: (List<String>) -> Int,
-    private val translator: Translator) {
+    private val discounts: (List<String>) -> Int
+) {
     private val fruits = mutableListOf<String>()
 
     fun add(fruit: String) {
@@ -10,7 +10,6 @@ class Basket(
     }
 
     fun total() = fruits
-        .map { translator.translate(it) }
         .sumBy { getPrice(it) } + discounts(fruits)
 
 }
