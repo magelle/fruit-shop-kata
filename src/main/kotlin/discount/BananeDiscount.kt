@@ -2,5 +2,6 @@ package discount
 
 import BANANES
 
-fun bananeDiscount(fruits: List<String>) =
-    (fruits.filter { it == BANANES }.count() / 2) * 150
+val bananeDiscount = buildDiscount(discount = 150, every = 2, fruitsWhich = ::isABanane)
+
+private fun isABanane(fruit: String) = fruit == BANANES

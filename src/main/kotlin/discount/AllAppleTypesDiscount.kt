@@ -6,5 +6,5 @@ import POMMES
 
 val allApples = listOf(APPLES, MELE, POMMES)
 
-fun allAppleTypesDiscount(fruits: List<String>) =
-    (fruits.filter { allApples.contains(it)  }.count() / 4) * 100
+val allAppleTypesDiscount = buildDiscount(discount = 100, every = 4, fruitsWhich = ::isAnyApple)
+private fun isAnyApple(fruit: String) = allApples.contains(fruit)

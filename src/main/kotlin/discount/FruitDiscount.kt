@@ -1,5 +1,6 @@
 package discount
 
 
-fun fruitDiscount(fruits: List<String>) =
-    (fruits.count() / 5) * 200
+val fruitDiscount = buildDiscount(discount = 200, every = 5, fruitsWhich = ::anyFruit)
+
+private fun anyFruit(fruit: String) = true

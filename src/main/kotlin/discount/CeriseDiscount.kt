@@ -2,5 +2,6 @@ package discount
 
 import CERISES
 
-fun ceriseDiscount(fruits: List<String>) =
-    (fruits.filter { it == CERISES }.count() / 2) * 20
+val ceriseDiscount = buildDiscount(20, 2, ::isACerises)
+
+fun isACerises(fruit: String) = fruit == CERISES

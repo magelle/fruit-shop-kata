@@ -5,12 +5,12 @@ class Basket(
 ) {
     private val fruits = mutableListOf<String>()
 
-    fun add(fruit: String) {
-        fruits.add(fruit)
-    }
+    fun add(fruit: String) = fruits.add(fruit)
 
-    fun total() = fruits
-        .sumBy { getPrice(it) } + discounts(fruits)
+    fun total() = sum(fruits) - discounts(fruits)
+
+    private fun sum(fruits: List<String>) =
+        fruits.sumBy { getPrice(it) }
 
 }
 

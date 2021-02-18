@@ -3,5 +3,9 @@ package discount
 import MELE
 
 
-fun meleDiscount(fruits: List<String>) =
-    (fruits.filter { it == MELE }.count() / 2) * 100
+val meleDiscount = buildDiscount(
+    discount = 100,
+    every = 2,
+    fruitsWhich = ::isAMele)
+
+private fun isAMele(fruit: String) = fruit == MELE
