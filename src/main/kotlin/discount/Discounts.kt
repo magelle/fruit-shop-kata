@@ -1,10 +1,7 @@
-import discount.applesDiscount
-import discount.bananeDiscount
-import discount.ceriseDiscount
-import discount.meleDiscount
+import discount.*
 
 fun applyDiscounts(fruits: List<String>) =
-    listOf(::ceriseDiscount, ::bananeDiscount, ::applesDiscount, ::meleDiscount)
+    listOf(::ceriseDiscount, ::bananeDiscount, ::applesDiscount, ::meleDiscount, ::allAppleTypesDiscount, ::fruitDiscount)
         .map { it(fruits) }
         .sum()
         .unaryMinus()

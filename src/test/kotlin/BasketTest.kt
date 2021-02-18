@@ -103,7 +103,7 @@ class BasketTest {
         basket.add(APPLES)
         basket.add(APPLES)
 
-        assertThat(basket.total()).isEqualTo(400)
+        assertThat(basket.total()).isEqualTo(100)
     }
 
     @Test
@@ -121,6 +121,42 @@ class BasketTest {
         basket.add(MELE)
         basket.add(MELE)
 
-        assertThat(basket.total()).isEqualTo(200)
+        assertThat(basket.total()).isEqualTo(100)
+    }
+
+    @Test
+    fun `super pommes discount`() {
+        basket.add(APPLES)
+        basket.add(POMMES)
+        basket.add(POMMES)
+        basket.add(MELE)
+
+        assertThat(basket.total()).isEqualTo(300)
+    }
+
+    @Test
+    fun `several times the super pommes discount`() {
+        basket.add(APPLES)
+        basket.add(POMMES)
+        basket.add(POMMES)
+        basket.add(POMMES)
+
+        basket.add(APPLES)
+        basket.add(POMMES)
+        basket.add(MELE)
+        basket.add(POMMES)
+
+        assertThat(basket.total()).isEqualTo(400)
+    }
+
+    @Test
+    fun `super fruit discount`() {
+        basket.add(APPLES)
+        basket.add(BANANES)
+        basket.add(CERISES)
+        basket.add(MELE)
+        basket.add(POMMES)
+
+        assertThat(basket.total()).isEqualTo(325)
     }
 }
